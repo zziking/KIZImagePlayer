@@ -1,5 +1,5 @@
 #KIZImageScrollView
-图片自动无限循环轮播，支持直接设置图片和用SDwebImage设置网络图片，只有3个imageView，节省性能。
+图片自动无限循环轮播，支持手动滑动和自动轮播，支持设置轮播间隔时间，支持storyboard，支持直接设置图片和用SDwebImage设置网络图片，只有3个imageView，提高性能。
 
 ![imagescroll](http://7xjsf4.com1.z0.glb.clouddn.com/git_kizImageScrollview_1.gif)
 
@@ -8,7 +8,6 @@
 设置代理
 
 ```
-self.dataSource = @[@"1", @"2", @"3", @"4"];
 self.imageScrollView.kizScrollDataSource = self;
 self.imageScrollView.kizScrollDelegate   = self;
 ```
