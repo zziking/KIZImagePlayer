@@ -13,14 +13,15 @@
 @property (nonatomic, weak) UIImageView *imageView1;
 @property (nonatomic, weak) UIImageView *imageView2;
 @property (nonatomic, weak) UIImageView *imageView3;
-@property (nonatomic, weak) UIPageControl *pageControl;
 @property (nonatomic, assign) NSUInteger currentPage;//当前显示图片的index
 @property (nonatomic, strong) NSTimer *autoScrollTimer;//自动轮播定时器
 @property (nonatomic, assign) NSUInteger numberOfImage;//图片总数量
 
 @end
 
-@implementation KIZImageScrollView
+@implementation KIZImageScrollView{
+    BOOL _isInitLayoutSubviews;
+}
 
 #pragma mark- life cycle
 
@@ -63,6 +64,13 @@
     UIImageView *imgV2 = [[UIImageView alloc] initWithFrame:self.bounds];
     UIImageView *imgV3 = [[UIImageView alloc] initWithFrame:self.bounds];
     
+    imgV1.contentMode = UIViewContentModeScaleAspectFill;
+    imgV2.contentMode = UIViewContentModeScaleAspectFill;
+    imgV3.contentMode = UIViewContentModeScaleAspectFill;
+    imgV1.clipsToBounds = YES;
+    imgV2.clipsToBounds = YES;
+    imgV3.clipsToBounds = YES;
+    
     [self addSubview:imgV1];
     [self addSubview:imgV2];
     [self addSubview:imgV3];
@@ -90,8 +98,7 @@
 }
 
 - (void)layoutSubviews{
-    static dispatch_once_t once;
-    dispatch_once(&once, ^{
+    if (!_isInitLayoutSubviews) {
         self.contentOffset = CGPointMake(self.bounds.size.width, 0);
         
         [self reloadImage];
@@ -101,11 +108,8 @@
         self.imageView3.frame = CGRectMake(self.bounds.size.width * 2, 0, self.bounds.size.width, self.bounds.size.height);
         self.contentSize =CGSizeMake(3 * self.bounds.size.width, self.bounds.size.height);
         
-        self.pageControl.center = CGPointMake(self.center.x, self.bounds.size.height - 15);
-
-    });
-    
-    
+        _isInitLayoutSubviews = YES;
+    }
     
     [super layoutSubviews];
     
@@ -157,8 +161,6 @@
     self.numberOfImage = count;
     
     _pageControl.numberOfPages = self.numberOfImage;
-    [_pageControl sizeToFit];
-    self.pageControl.center = CGPointMake(self.center.x, self.bounds.size.height - 15);
 }
 
 
@@ -177,6 +179,9 @@
     [self.kizScrollDataSource scrollView:self imageAtIndex:_currentPage == (self.numberOfImage - 1) ? 0 : _currentPage + 1 forImageView:_imageView3];
     [self.kizScrollDataSource scrollView:self imageAtIndex:_currentPage == 0 ? (self.numberOfImage - 1) : _currentPage - 1 forImageView:_imageView1];
     
+    if ([self.kizScrollDelegate respondsToSelector:@selector(scrollView:didDidScrollToPage:)]) {
+        [self.kizScrollDelegate scrollView:self didDidScrollToPage:self.currentPage];
+    }
 }
 
 /**
@@ -218,26 +223,6 @@
 }
 
 #pragma mark- getters & setters
-
-/**
- *  初始化UIPageControl
- *  @return
- */
-- (UIPageControl *)pageControl{
-    if (!_pageControl) {
-        UIPageControl *pageControl = [[UIPageControl alloc] init];
-        pageControl.numberOfPages  = self.numberOfImage;
-        [pageControl sizeToFit];
-        pageControl.currentPageIndicatorTintColor = [UIColor blueColor];
-        pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
-        pageControl.hidesForSinglePage = YES;
-        
-        [self.superview addSubview:pageControl];
-        _pageControl = pageControl;
-    }
-    return _pageControl;
-}
-
 
 - (void)setAutoScrollInterval:(NSTimeInterval)autoScrollInterval{
     _autoScrollInterval = autoScrollInterval > 1 ? autoScrollInterval : 1.0;

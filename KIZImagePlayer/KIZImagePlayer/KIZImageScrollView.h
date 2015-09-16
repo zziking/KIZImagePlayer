@@ -21,17 +21,18 @@
 
 @optional
 - (void)scrollView:(KIZImageScrollView *)scrollView didTappedImageAtIndex:(NSUInteger)index;
+- (void)scrollView:(KIZImageScrollView *)scrollView didDidScrollToPage:(NSUInteger)page;
 
 @end
 
 @interface KIZImageScrollView : UIScrollView
 
-@property (nonatomic, weak) id<KIZImageScrollViewDatasource> kizScrollDataSource;
-@property (nonatomic, weak) id<KIZImageScrollViewDelegate> kizScrollDelegate;
+@property (nonatomic, weak) IBOutlet id<KIZImageScrollViewDatasource> kizScrollDataSource;
+@property (nonatomic, weak) IBOutlet id<KIZImageScrollViewDelegate> kizScrollDelegate;
+@property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
 
-@property (nonatomic, weak, readonly) UIPageControl *pageControl;
 @property (nonatomic, assign) IBInspectable BOOL shouldAutoScroll;//是否自动轮播，默认YES
-@property (nonatomic, assign) IBInspectable NSTimeInterval autoScrollInterval;//自动轮播时间间隔，默认5s
+@property (nonatomic, assign) IBInspectable double autoScrollInterval;//自动轮播时间间隔，默认5s
 
 /**
  *  当数据源改变时，刷新数据
