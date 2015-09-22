@@ -1,6 +1,6 @@
 KIZImageScrollView
 ==================
-[![Travis](https://img.shields.io/travis/bang590/JSPatch.svg)](https://github.com/bang590/JSPatch)
+[![Travis](https://img.shields.io/travis/zziking/KIZImagePlayer.svg)](https://github.com/zziking/KIZImagePlayer)
 ![CocoaPods Version](https://img.shields.io/cocoapods/v/KIZImagePlayer.svg?style=flat)
 [![License](https://img.shields.io/github/license/zziking/KIZImagePlayer.svg?style=flat)](https://github.com/zziking/KIZImagePlayer/blob/master/LICENSE)
 
