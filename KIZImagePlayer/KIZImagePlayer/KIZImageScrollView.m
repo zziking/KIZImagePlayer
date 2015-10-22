@@ -7,6 +7,7 @@
 //
 
 #import "KIZImageScrollView.h"
+#import "KIZTimerWeakTarget.h"
 
 @interface KIZImageScrollView ()<UIScrollViewDelegate>
 
@@ -189,7 +190,14 @@
  */
 - (void)setUpAutoScrollTimer{
     if (!_autoScrollTimer.isValid) {
-        _autoScrollTimer = [NSTimer timerWithTimeInterval:self.autoScrollInterval target:self selector:@selector(autoScrollTimerFired:) userInfo:nil repeats:YES];
+        
+        KIZTimerWeakTarget *target = [[KIZTimerWeakTarget alloc] initWithTarget:self selector:@selector(autoScrollTimerFired:)];
+        _autoScrollTimer = [NSTimer timerWithTimeInterval:self.autoScrollInterval
+                                                   target:target
+                                                 selector:@selector(timerDidFire:)
+                                                 userInfo:nil
+                                                  repeats:YES
+                            ];
         [[NSRunLoop currentRunLoop] addTimer:_autoScrollTimer forMode:NSRunLoopCommonModes];
     }
 }

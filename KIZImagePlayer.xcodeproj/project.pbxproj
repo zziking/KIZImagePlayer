@@ -15,6 +15,7 @@
 		444FB7CD1B7C317B00BC44EA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 444FB7CB1B7C317B00BC44EA /* LaunchScreen.xib */; };
 		444FB7D91B7C317B00BC44EA /* KIZImagePlayerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 444FB7D81B7C317B00BC44EA /* KIZImagePlayerTests.m */; };
 		444FB7E51B7C321300BC44EA /* KIZImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 444FB7E41B7C321300BC44EA /* KIZImageScrollView.m */; };
+		448CF3C61BD944FD0054154B /* KIZTimerWeakTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 448CF3C51BD944FD0054154B /* KIZTimerWeakTarget.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		444FB7D81B7C317B00BC44EA /* KIZImagePlayerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KIZImagePlayerTests.m; sourceTree = "<group>"; };
 		444FB7E31B7C321300BC44EA /* KIZImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIZImageScrollView.h; sourceTree = "<group>"; };
 		444FB7E41B7C321300BC44EA /* KIZImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIZImageScrollView.m; sourceTree = "<group>"; };
+		448CF3C41BD944FD0054154B /* KIZTimerWeakTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIZTimerWeakTarget.h; sourceTree = "<group>"; };
+		448CF3C51BD944FD0054154B /* KIZTimerWeakTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIZTimerWeakTarget.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,8 @@
 		444FB7E21B7C31CA00BC44EA /* KIZImagePlayer */ = {
 			isa = PBXGroup;
 			children = (
+				448CF3C41BD944FD0054154B /* KIZTimerWeakTarget.h */,
+				448CF3C51BD944FD0054154B /* KIZTimerWeakTarget.m */,
 				444FB7E31B7C321300BC44EA /* KIZImageScrollView.h */,
 				444FB7E41B7C321300BC44EA /* KIZImageScrollView.m */,
 			);
@@ -232,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				448CF3C61BD944FD0054154B /* KIZTimerWeakTarget.m in Sources */,
 				444FB7C51B7C317B00BC44EA /* ViewController.m in Sources */,
 				444FB7C21B7C317B00BC44EA /* AppDelegate.m in Sources */,
 				444FB7E51B7C321300BC44EA /* KIZImageScrollView.m in Sources */,
@@ -430,6 +436,7 @@
 				444FB7DE1B7C317B00BC44EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		444FB7DF1B7C317B00BC44EA /* Build configuration list for PBXNativeTarget "KIZImagePlayerTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +445,7 @@
 				444FB7E11B7C317B00BC44EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
