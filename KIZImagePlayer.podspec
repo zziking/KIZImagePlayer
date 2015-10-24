@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "KIZImagePlayer"
-  s.version      = "0.0.2"
+  s.version      = "1.0.0"
   s.summary      = "an image auto scroll player."
 
   s.description  = <<-DESC
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.platform     = :ios, "6.0"
 
-  s.source       = { :git => "https://github.com/zziking/KIZImagePlayer.git", :tag => "0.0.2" }
+  s.source       = { :git => "https://github.com/zziking/KIZImagePlayer.git", :tag => "1.0.0" }
   s.source_files  = "KIZImagePlayer/KIZImagePlayer/**/*.{h,m}"
 
   s.requires_arc = true
