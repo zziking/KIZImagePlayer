@@ -160,7 +160,9 @@
 - (void)reloadData{
     NSUInteger count = [self.kizScrollDataSource numberOfImageInScrollView:self];
     self.numberOfImage = count;
-    
+    if (_currentPage > count - 1) {
+        _currentPage = count - 1;
+    }
     _pageControl.numberOfPages = self.numberOfImage;
 }
 
