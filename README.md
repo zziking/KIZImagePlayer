@@ -10,7 +10,7 @@ KIZImageScrollView
 
 ### Installation
 
-Available in [Cocoa Pods](http://cocoapods.org/?q=KIZImagePlayer)
+Available in [CocoaPods](http://cocoapods.org/?q=KIZImagePlayer)
 ```ruby
 pod 'KIZImagePlayer'
 ```
